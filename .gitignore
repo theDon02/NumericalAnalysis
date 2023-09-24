@@ -1,6 +1,3 @@
-# Ignore the inputted files that describe a matrix or a vector, these files will be up to the user's discretion
-/text_files/
-
 # Ignore all the files inside the build folder since it contains the executable
 /build/
 
