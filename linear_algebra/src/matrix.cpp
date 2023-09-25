@@ -160,21 +160,21 @@ linear_algebra::Matrix linear_algebra::Matrix::multiply(linear_algebra::Matrix* 
     return result;
 }
 
-bool linear_algebra::Matrix::isMatrixCorrectOrder(std::vector<linear_algebra::Matrix*>* input, bool*){
+// bool linear_algebra::Matrix::isMatrixCorrectOrder(std::vector<linear_algebra::Matrix*>* input, bool*){
     
-}
+// }
 
-linear_algebra::Matrix linear_algebra::Matrix::multiply(std::vector<linear_algebra::Matrix*>* input){
-    //Possible reorder
-    bool possibleReorder;
+// linear_algebra::Matrix linear_algebra::Matrix::multiply(std::vector<linear_algebra::Matrix*>* input){
+//     //Possible reorder
+//     bool possibleReorder;
 
-    //It needs to go through the valid checker
-    if(!isMatrixCorrectOrder(input, &possibleReorder)){
-        if(!possibleReorder){
-            std::cout << "\nmultiply: The vector of Matricies will not multiply correctly, change the order of matricies\n";
-            std::exit(1);
-        }
-        std::cout << "\nmultiply: The order of matricies that you inputted was incorrect, but it will be reordered!\n";
-        reorderMatrixVector(input);
-    }
-}
+//     //It needs to go through the valid checker
+//     if(!isMatrixCorrectOrder(input, &possibleReorder)){
+//         if(!possibleReorder){
+//             std::cout << "\nmultiply: The vector of Matricies will not multiply correctly, change the order of matricies\n";
+//             std::exit(1);
+//         }
+//         std::cout << "\nmultiply: The order of matricies that you inputted was incorrect, but it will be reordered!\n";
+//         reorderMatrixVector(input);
+//     }
+// }

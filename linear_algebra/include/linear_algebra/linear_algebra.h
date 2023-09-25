@@ -46,17 +46,17 @@ namespace linear_algebra {
             //Multiplies the current matrix object with another matrix object
             linear_algebra::Matrix multiply(linear_algebra::Matrix*);
 
-            //Multiplies a vector of matricies together to get a resultant matrix
-            linear_algebra::Matrix multiply(std::vector<linear_algebra::Matrix*>*);
+            // //Multiplies a vector of matricies together to get a resultant matrix
+            // linear_algebra::Matrix multiply(std::vector<linear_algebra::Matrix*>*);
 
-            //Multiplies a matrix with an inputed vector
-            linear_algebra::Matrix multiply(linear_algebra::Vector*);
+            // //Multiplies a matrix with an inputed vector
+            // linear_algebra::Matrix multiply(linear_algebra::Vector*);
 
-            //Checks if the order of matricies in the vector is good
-            bool isMatrixCorrectOrder(std::vector<linear_algebra::Matrix*>*, bool*);
+            // //Checks if the order of matricies in the vector is good
+            // bool isMatrixCorrectOrder(std::vector<linear_algebra::Matrix*>*, bool*);
 
-            //Orders the order of matricies the best way possible
-            void reorderMatrixVector(std::vector<linear_algebra::Matrix*>*);
+            // //Orders the order of matricies the best way possible
+            // void reorderMatrixVector(std::vector<linear_algebra::Matrix*>*);
 
             //It will fill out the matrix based on the input file
             void filloutMatrix(std::string);
