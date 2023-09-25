@@ -1,4 +1,4 @@
-#include "linear_algebra/linear_algebra.h"
+#include "linear_algebra/matrix.h"
 
 linear_algebra::Matrix::Matrix(unsigned int rows, unsigned int columns) {
     _rows = rows;
@@ -160,9 +160,13 @@ linear_algebra::Matrix linear_algebra::Matrix::multiply(linear_algebra::Matrix* 
     return result;
 }
 
-// bool linear_algebra::Matrix::isMatrixCorrectOrder(std::vector<linear_algebra::Matrix*>* input, bool*){
-    
-// }
+bool linear_algebra::Matrix::isMatrixCorrectOrder(std::vector<linear_algebra::Matrix*>* input, bool* isPossible){
+    for(unsigned int i = 0; i < input->size() - 1; i++){
+
+    }
+
+    return false;    
+}
 
 // linear_algebra::Matrix linear_algebra::Matrix::multiply(std::vector<linear_algebra::Matrix*>* input){
 //     //Possible reorder
