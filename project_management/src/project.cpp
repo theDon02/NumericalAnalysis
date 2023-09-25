@@ -15,6 +15,9 @@ void projectDriver::project::aboutProgram() {
 }
 
 void projectDriver::project::runProgram(int argc, char* argv[]){
+    // std::cout << argv[0] << "\n";
+    // std::cout << argv[1] << "\n";
+    // std::cout << argv[2] << "\n";
     //It will run the project
     linear_algebra::Matrix m(argv[1]);
 

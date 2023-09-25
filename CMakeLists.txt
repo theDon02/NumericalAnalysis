@@ -1,19 +1,16 @@
 cmake_minimum_required(VERSION 3.0.0)
 
 #Project name
-project(Numerical_Analysis VERSION 1.0.0)
+project(Numerical_Analysis)
 
-#Include directories for the main project
-include_directories(include)
-
-#Creating a subdirectory for Linear Algebra Library
+# Creating subdirectory for the libraries
 add_subdirectory(linear_algebra)
-
-#Creating a subdirectory for Solver Library
 add_subdirectory(solver)
-
-#Creating a subdirectory for project_management
 add_subdirectory(project_management)
+
+# Include the header directories of your libraries. Look at what main.cpp includes
+include_directories(numerical_solver 
+${PROJECT_SOURCE_DIR}/project_management)
 
 #Creating an executable
 add_executable(numerical_solver 

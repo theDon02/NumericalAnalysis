@@ -18,5 +18,7 @@ cd ./build
 cmake ../
 make
 
-# User do not touch anything from above!!!! Just change the contents from below!
-# Below is where the user will input their own tests and see the results by the program accordingly.
+# # User do not touch anything from above!!!! Just change the contents from below!
+# COMMAND_FLAGS="../text_files/matrix.txt ../text_files/matrix2.txt"
+
+# ./numerical_solver "$COMMAND_FLAGS"

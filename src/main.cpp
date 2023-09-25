@@ -9,7 +9,6 @@ int main(int argc, char* argv[]) {
 
     //Run the program
     project.runProgram(argc, argv);
-    
         
     return 0;
 }

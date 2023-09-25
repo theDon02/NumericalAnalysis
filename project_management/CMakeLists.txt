@@ -13,7 +13,7 @@ add_library(project_management ${SOURCES})
 target_include_directories(project_management PUBLIC
 ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
-#Linking other libraries to this one
+#Using the linear_algebra and solver library
 target_link_libraries(project_management PRIVATE
 linear_algebra
 solver)
