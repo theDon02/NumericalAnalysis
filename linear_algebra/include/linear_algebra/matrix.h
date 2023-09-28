@@ -25,6 +25,9 @@ namespace linear_algebra {
             //Creating a matrix based on the text file input only
             Matrix(std::string);
 
+            //Creating a matrix based on a 2D vector input
+            Matrix(std::vector<std::vector<double>>&);
+
             //Destructor
             ~Matrix(){};
 
@@ -37,6 +40,15 @@ namespace linear_algebra {
             //It will return the number of columns in the matrix
             unsigned int getCols(){return _columns;};
 
+            //It will set the rows of the matrix
+            void setRows(unsigned int r){_rows = r;};
+
+            //It will set the columns of the matrix
+            void setColumns(unsigned int c){_columns = c;};
+
+            //It will set the value of the 2D vector
+            void setMatrix(std::vector<std::vector<double>>& m){_matrix = m;};
+
             //It will set a value at a position based on the user
             void setValueInMatrix(unsigned int, unsigned int, double);
 
@@ -44,28 +56,22 @@ namespace linear_algebra {
             double getValueInMatrix(unsigned int, unsigned int);
 
             //Multiplies the current matrix object with another matrix object
-            linear_algebra::Matrix multiply(linear_algebra::Matrix*);
-
-            // //Multiplies a vector of matricies together to get a resultant matrix
-            // linear_algebra::Matrix multiply(std::vector<linear_algebra::Matrix*>*);
-
-            // //Multiplies a matrix with an inputed vector
-            // linear_algebra::Matrix multiply(linear_algebra::Vector*);
-
-            //Checks if the order of matricies in the vector is good
-            bool isMatrixCorrectOrder(std::vector<linear_algebra::Matrix*>*, bool*);
-
-            // //Orders the order of matricies the best way possible
-            // void reorderMatrixVector(std::vector<linear_algebra::Matrix*>*);
+            linear_algebra::Matrix multiply(linear_algebra::Matrix&);
 
             //It will fill out the matrix based on the input file
-            void filloutMatrix(std::string);
+            void filloutMatrix(std::string, bool);
 
             //It will print out the matrix to console
             void printMatrix();
 
             //Returns true or false if the matrix is square or not
-            bool isSquare();
+            bool isSquare(){return _rows == _columns;};
+
+            //Returns true or false if the inputted row and column of matrix is square
+            bool isSquare(unsigned int r, unsigned int c){return r == c;};
+
+            //Returns a transposed of the matrix
+            linear_algebra::Matrix getTranspose();
     };
 }
 

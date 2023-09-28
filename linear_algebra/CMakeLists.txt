@@ -4,7 +4,8 @@ project(linear_algebra)
 # Define sources files needed for this library and set them equal to SOURCES
 set(SOURCES
 src/matrix.cpp
-src/vector.cpp)
+src/vector.cpp
+src/specialMatricies.cpp)
 
 # Define a library target
 add_library(linear_algebra ${SOURCES})

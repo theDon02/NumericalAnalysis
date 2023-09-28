@@ -11,15 +11,22 @@ linear_algebra::Matrix::Matrix(unsigned int rows, unsigned int columns, std::str
     _rows = rows; _columns = columns;
 
     //Fill out the matrix based on the input file
-    linear_algebra::Matrix::filloutMatrix(fileName); 
+    linear_algebra::Matrix::filloutMatrix(fileName, true); 
 }
 
 linear_algebra::Matrix::Matrix(std::string inputFile){
+    
     //Filling out the matrix
-    linear_algebra::Matrix::filloutMatrix(inputFile);
+    linear_algebra::Matrix::filloutMatrix(inputFile, false);
 }
 
-void linear_algebra::Matrix::filloutMatrix(std::string inputFile){
+linear_algebra::Matrix::Matrix(std::vector<std::vector<double>>& input) {
+    _matrix = input;
+    _rows = (unsigned int)(input.size());
+    _columns = (unsigned int)(input)[0].size();
+}
+
+void linear_algebra::Matrix::filloutMatrix(std::string inputFile, bool hasDim){
     //Create an inputfile variable
     std::ifstream fileObject(inputFile);
 
@@ -46,6 +53,16 @@ void linear_algebra::Matrix::filloutMatrix(std::string inputFile){
             }
 
             if(lineCounter == 1){
+                if(hasDim){
+                    if(rows != _rows) {
+                        std::cout << "\nfillOutMatrix: The rows value in file and inputted row are not the same\n";
+                        std::exit(1);
+                    }else if(cols != _columns){
+                        std::cout << "\nfillOutMatrix: The columns value in file and inputted columns are not the same\n";
+                        std::exit(1);
+                    }
+                }
+
                 //Creating a blank matrix if the user did not input size of the matrix
                 _rows = rows;
                 _columns = cols;
@@ -131,27 +148,23 @@ void linear_algebra::Matrix::printMatrix() {
     }
 }
 
-bool linear_algebra::Matrix::isSquare(){
-    return _rows == _columns;
-}
-
-linear_algebra::Matrix linear_algebra::Matrix::multiply(linear_algebra::Matrix* input){
+linear_algebra::Matrix linear_algebra::Matrix::multiply(linear_algebra::Matrix& input){
     //Check the number of columns and rows match
-    if(_columns != input->getRows()){
+    if(_columns != input.getRows()){
         std::cout << "\nrows: " << _rows << " cols: " << _columns << "\n";
-        std::cout << "\nrows: " << input->getRows() << " cols: " << input->getCols() << "\n";
+        std::cout << "\nrows: " << input.getRows() << " cols: " << input.getCols() << "\n";
         std::cout << "multiply: columns and rows don't match\n";
         std::exit(1);
     }
 
     //Resulting Matrix
-    linear_algebra::Matrix result(_rows, input->getCols());
+    linear_algebra::Matrix result(_rows, input.getCols());
 
     for(unsigned int i = 0; i < _rows; i++){
-        for(unsigned int j = 0; j < input->getCols(); j++){
+        for(unsigned int j = 0; j < input.getCols(); j++){
             double val = 0;
             for(unsigned int z = 0; z < _columns; z++){
-                val = val + (getValueInMatrix(i, z) * input->getValueInMatrix(z, j)); 
+                val = val + (getValueInMatrix(i, z) * input.getValueInMatrix(z, j)); 
             }
             result.setValueInMatrix(i, j, val);
         }
@@ -160,25 +173,14 @@ linear_algebra::Matrix linear_algebra::Matrix::multiply(linear_algebra::Matrix* 
     return result;
 }
 
-bool linear_algebra::Matrix::isMatrixCorrectOrder(std::vector<linear_algebra::Matrix*>* input, bool* isPossible){
-    for(unsigned int i = 0; i < input->size() - 1; i++){
+linear_algebra::Matrix linear_algebra::Matrix::getTranspose(){
+    Matrix newMatrix(_columns, _rows);
 
+    for(int i = 0; i < _rows; i++){
+        for(int j = 0; j < _columns; j++){
+            newMatrix.setValueInMatrix(j, i, getValueInMatrix(i, j));
+        }
     }
 
-    return false;    
+    return newMatrix;
 }
-
-// linear_algebra::Matrix linear_algebra::Matrix::multiply(std::vector<linear_algebra::Matrix*>* input){
-//     //Possible reorder
-//     bool possibleReorder;
-
-//     //It needs to go through the valid checker
-//     if(!isMatrixCorrectOrder(input, &possibleReorder)){
-//         if(!possibleReorder){
-//             std::cout << "\nmultiply: The vector of Matricies will not multiply correctly, change the order of matricies\n";
-//             std::exit(1);
-//         }
-//         std::cout << "\nmultiply: The order of matricies that you inputted was incorrect, but it will be reordered!\n";
-//         reorderMatrixVector(input);
-//     }
-// }
