@@ -16,61 +16,126 @@ namespace linear_algebra {
             //Default constructor
             Matrix(){};
 
-            //Creating a matrix of size r x c and filling them with 0's
-            Matrix(unsigned int, unsigned int); 
+            /*
+            This constructor will create Matrix instance filled with 0's with a dimension of c x r
+            @param unsigned int r: The row size of the matrix
+            @param unsigned int c: The column size of the matrix            
+            */
+            Matrix(unsigned int r, unsigned int c); 
 
-            //Creating a matrix based on a text file input
-            Matrix(unsigned int, unsigned int, std::string);
+            /*
+            This constructor will create Matrix instance with a dimension of c x r
+            @param unsigned int c: The row size of the matrix
+            @param usigned int r: The column size of the matrix
+            @param std::string f: The file name that has the values of the matrix, number of rows, and number of columns
 
-            //Creating a matrix based on the text file input only
-            Matrix(std::string);
+            NOTE: The inputted "c", "r" need to match with the column and row value inside the inputted file
+            */
+            Matrix(unsigned int c, unsigned int r, std::string f);
 
-            //Creating a matrix based on a 2D vector input
-            Matrix(std::vector<std::vector<double>>&);
+            /*
+            This constructor will create Matrix instance with a dimesion of c x r
+            @param std::string f: The file name that has the value of the matrix, number of rows, and number of columns
+            */
+            Matrix(std::string f);
+
+            /*
+            This constructor will create Matrix instance with a dimension of c x r
+            @param std::vector<std::vector<double>>& m: It is the 2D vector that we want to use for this Matrix instance.
+            */
+            Matrix(std::vector<std::vector<double>>& m);
 
             //Destructor
             ~Matrix(){};
 
-            //It will return the double _matrix vector
+            /*
+            This function will return this Matrix's instance 2D vector.
+
+            NOTE: This is a getter function
+            */
             std::vector<std::vector<double>> getMatrix(){return _matrix;};
 
-            //It will return the number of rows in the matrix
+            /*
+            This function will return this Matrix's instance row dimension
+
+            NOTE: This is a getter function
+            */
             unsigned int getRows(){return _rows;};
 
-            //It will return the number of columns in the matrix
+            /*
+            This function will return this Matrix's instance column dimension
+
+            NOTE: This is a getter function            
+            */
             unsigned int getCols(){return _columns;};
 
-            //It will set the rows of the matrix
+            /*
+            This function will set this Matrix's instance row dimension value
+            @param unsigned int r: The inputted row value
+
+            NOTE: This is a setter function
+            */
             void setRows(unsigned int r){_rows = r;};
 
-            //It will set the columns of the matrix
+            /*
+            This function will set this Matrix's instance column dimension value
+            @param unsigned int c: The inputted column value
+
+            NOTE: This is a setter function
+            */
             void setColumns(unsigned int c){_columns = c;};
 
-            //It will set the value of the 2D vector
+            /*
+            This function will set this Matrix's instance 2D vector that holds the element of this Matrix object
+            @param std::vector<std::vector<double>>& m: The inputted 2D vector that we want to use
+
+            NOTE: This is a setter function
+            */
             void setMatrix(std::vector<std::vector<double>>& m){_matrix = m;};
 
-            //It will set a value at a position based on the user
-            void setValueInMatrix(unsigned int, unsigned int, double);
+            /*
+            This function will change the value of a specific element inside the matrix. 
+            @param unsigned int r: The row location of the element that is going to be changed
+            @param unsigned int c: The column location of the element that is going to be changed
+            @param double v: The value that the specific element will be changed to
+            */
+            void setValueInMatrix(unsigned int r, unsigned int c, double v);
 
-            //It will return the value of the matrix at a specific position
-            double getValueInMatrix(unsigned int, unsigned int);
+            /*
+            This function will get the element value that is at location [c, r]
+            @param unsigned int r: The row location of the element that we want to get
+            @param unsigned int c: The column location of the element that we want to get
+            */
+            double getValueInMatrix(unsigned int r, unsigned int c);
 
-            //Multiplies the current matrix object with another matrix object
-            linear_algebra::Matrix multiply(linear_algebra::Matrix&);
+            /*
+            This function will multiply the current Matrix instance object against another Matrix object. And returns a result Matrix of the operation.
+            @param linear_algebra::Matrix& i: It is the inputted Matrix that will be multiplied with.
+            
+            NOTE: This follows Matrix Multiplication algorithm.
+            */
+            linear_algebra::Matrix multiply(linear_algebra::Matrix& i);
 
-            //It will fill out the matrix based on the input file
-            void filloutMatrix(std::string, bool);
+            /*
+            This function will read in a file that contains elements of the matrix.
+            @param std::string f: The inputted file
+            @param bool hasDim: This is used for the second constructor, to make sure that dimension parameters and the dimension inside the file match
+            */
+            void filloutMatrix(std::string, bool hasDim);
 
-            //It will print out the matrix to console
+            /*
+            This function will print the matrix to the console
+            */
             void printMatrix();
 
-            //Returns true or false if the matrix is square or not
+            /*
+            This function will return if the current Matrix instance is a square matrix
+            */
             bool isSquare(){return _rows == _columns;};
 
-            //Returns true or false if the inputted row and column of matrix is square
-            bool isSquare(unsigned int r, unsigned int c){return r == c;};
-
-            //Returns a transposed of the matrix
+            /*
+            This function will return the transpose matrix of the current Matrix instance
+            */
             linear_algebra::Matrix getTranspose();
     };
 }
