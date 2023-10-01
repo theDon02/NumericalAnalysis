@@ -2,7 +2,7 @@
 
 linear_algebra::SquareMatrix::SquareMatrix(unsigned int r, unsigned int c){
     if(r != c){
-        std::cout << "\nSquareMatrix constructor: The inputted rows and columns of matrix needs to be equal\n";
+        std::cout << "\nSquareMatrix::SquareMatrix: The inputted rows and columns of matrix needs to be equal\n";
         std::exit(1);
     }
 
@@ -15,7 +15,7 @@ linear_algebra::SquareMatrix::SquareMatrix(unsigned int r, unsigned int c){
 
 linear_algebra::SquareMatrix::SquareMatrix(unsigned int r, unsigned int c, std::string fileName){
     if(r != c){
-        std::cout << "\nSquareMatrix constructor: The inputted rows and columns of matrix needs to be equal\n";
+        std::cout << "\nSquareMatrix::SquareMatrix: The inputted rows and columns of matrix needs to be equal\n";
         std::exit(1);
     }
 
@@ -27,7 +27,7 @@ linear_algebra::SquareMatrix::SquareMatrix(unsigned int r, unsigned int c, std::
 
 linear_algebra::SquareMatrix::SquareMatrix(std::vector<std::vector<double>>& i){
     if(i.size() != i[0].size()){
-        std::cout << "\nSquareMatrix constructor: The inputted 2D vector dont not have equal rows or columns\n";
+        std::cout << "\nSquareMatrix::SquareMatrix: The inputted 2D vector dont not have equal rows or columns\n";
         std::exit(1);
     }
 
@@ -38,7 +38,7 @@ linear_algebra::SquareMatrix::SquareMatrix(std::vector<std::vector<double>>& i){
 
 linear_algebra::IdentityMatrix::IdentityMatrix(unsigned int c, unsigned int r) : SquareMatrix(r, c){
     if(r != c){
-        std::cout << "\nIdentityMatrix constructor: The inputted rows and columns of matrix needs to be equal\n";
+        std::cout << "\nIdentityMatrix::IdentityMatrix: The inputted rows and columns of matrix needs to be equal\n";
         std::exit(1);
     }    
 
@@ -53,17 +53,17 @@ linear_algebra::IdentityMatrix::IdentityMatrix(unsigned int c, unsigned int r) :
 
 linear_algebra::IdentityMatrix::IdentityMatrix(std::vector<std::vector<double>>& i){
     if(i.size() != i[0].size()){
-        std::cout << "\nIdentityMatrix constructor: The inputted rows and columns of matrix needs to be equal\n";
+        std::cout << "\nIdentityMatrix::IdentityMatrix: The inputted rows and columns of matrix needs to be equal\n";
         std::exit(1);
     }
 
     for(unsigned int r = 0; r < i.size(); r++){
         for(unsigned int c = 0; c < i[0].size(); c++){
             if(r == c && (i[r][c] != 1)){
-                std::cout << "\nIdentityMatrix constructor: The inputted 2D vector does not have 1's on the diagonal, invalid input\n";
+                std::cout << "\nIdentityMatrix::IdentityMatrix: The inputted 2D vector does not have 1's on the diagonal, invalid input\n";
                 std::exit(1);
             }else if(r != c && (i[r][c] != 0)){
-                std::cout << "\nIdentityMatrix constructor: The inputted 2D vector is not valid, there are no 0's other outside of diagonal, invalid input\n";
+                std::cout << "\nIdentityMatrix::IdentityMatrix: The inputted 2D vector is not valid, there are no 0's other outside of diagonal, invalid input\n";
                 std::exit(1);
             }
         }

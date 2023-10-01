@@ -4,14 +4,15 @@ cmake_minimum_required(VERSION 3.0.0)
 project(Numerical_Analysis)
 
 # Creating subdirectory for the libraries
-add_subdirectory(linear_algebra)
-add_subdirectory(solver)
+add_subdirectory(linear_algebra) # linear algebra library
+add_subdirectory(solver) # solver library
+add_subdirectory(test) # testing library
 
-#Creating an executable
+#Creating an executable for the main program
 add_executable(numerical_solver 
 src/main.cpp)
 
-#Linking the libraries that were created above to the executable
+#Linking the libraries that were created above to the executable program
 target_link_libraries(numerical_solver
 PRIVATE
 linear_algebra
