@@ -6,7 +6,8 @@ set(SOURCES
 src/linear_algebra_exceptions.cpp
 src/vector.cpp
 src/matrix.cpp
-src/specialMatricies.cpp)
+src/specialMatricies.cpp
+src/linear_algebra_operations.cpp)
 
 # Define a library target
 add_library(linear_algebra ${SOURCES})
