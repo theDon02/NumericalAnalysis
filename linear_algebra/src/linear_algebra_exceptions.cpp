@@ -21,7 +21,7 @@ void LinearAlgebraRunTimeException::determineLogLevel(const int code) {
     case 3:
         _level = SEVERE;
     default:
-        std::cout << "\ndetermineLogLevel: INVALID ERROR CODE\n";
+        std::cout << "\nLinearAlgebraRunTimeException::determineLogLevel: INVALID ERROR CODE\n";
         std::exit(1);
         break;
     }
@@ -48,7 +48,7 @@ void LinearAlgebraRunTimeException::createErrorMessage(const std::string& messag
     case SEVERE:
         _myMessage = "\n   SEVERE   " + dateTimeStr + message + "\n";    
     default:
-        std::cout << "\ncreateErrorMessage: INVALID ERROR MESSAGE\n";
+        std::cout << "\nLinearAlgebraRunTimeException::createErrorMessage: INVALID ERROR MESSAGE\n";
         std::exit(1);
         break;
     }
