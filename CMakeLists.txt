@@ -12,7 +12,7 @@ add_subdirectory(test) # testing library
 add_executable(numerical_solver 
 src/main.cpp)
 
-#Linking the libraries that were created above to the executable program
+#Linking the libraries that are needed for the executable program
 target_link_libraries(numerical_solver
 PRIVATE
 linear_algebra
