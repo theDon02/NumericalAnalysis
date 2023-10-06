@@ -110,56 +110,19 @@ namespace linear_algebra {
             @param unsigned int c: The column location of the element that is going to be changed
             @param double v: The value that the specific element will be changed to
             */
-            void setValueInMatrix(const unsigned int r, const unsigned int c, const double v);
+            void setVal(const unsigned int r, const unsigned int c, const double v);
 
             /*
             This function will get the element value that is at location [c, r]
             @param unsigned int r: The row location of the element that we want to get
             @param unsigned int c: The column location of the element that we want to get
             */
-            double getValueInMatrix(const unsigned int r, const unsigned int c);
-
-            /*
-            This function will multiply the current Matrix instance object against another Matrix object. And returns a result Matrix of the operation.
-            @param linear_algebra::Matrix& i: It is the inputted Matrix that will be multiplied with.
-            
-            NOTE: This follows Matrix Multiplication Rules.
-            */
-            linear_algebra::Matrix Multiply(linear_algebra::Matrix& i);
-
-            /*
-            This function will multiply the current Matrix instance object against a Vector object. And return a resulting Matrix of of the operation.
-            @param linear_algebra::Vector& i: It is the inputted Matrix that will be multiplied with.
-
-            NOTE: The vector will be considered as sa type-like Matrix that has a row and column dimension, except one dimension for the vector will equal to 1
-            */
-            linear_algebra::Matrix Multiply(linear_algebra::Vector& i);
-
-            /*
-            This function will subtract the current Matrix instance object against another Matrix object. And returns a result Matrix of the operation.
-            @param linear_algebra::Matrix& i: It is the inputted Matrix that will be subtracted with.
-
-            NOTE: This follows the Matrix Subtraction algorithm
-            */
-            linear_algebra::Matrix Subtract(linear_algebra::Matrix& i);
-
-            /*
-            This function will add the current Matrix instance object against another Matrix object. And returns a result Matrix of the operation.
-            @param linear_algebra::Matrix& i: It is the inputted Matrix that will be added with.
-
-            NOTE: This follows the Matrix Addition Rules
-            */
-            linear_algebra::Matrix Add(linear_algebra::Matrix& i);
+            double getVal(const unsigned int r, const unsigned int c);
 
             /*
             This function will return if the current Matrix instance is a square matrix
             */
             bool isSquare(){return std::get<0>(_dimension) == std::get<1>(_dimension);};
-
-            /*
-            This function will return the transpose matrix of the current Matrix instance
-            */
-            linear_algebra::Matrix Transpose();
 
             /*
             This function will read in a file that contains elements of the matrix.
