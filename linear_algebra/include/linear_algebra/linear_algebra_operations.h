@@ -73,6 +73,13 @@ class LinearAlgebraOperations {
         linear_algebra::Vector Multiply(linear_algebra::Vector& v1, double val);
 
         /*
+        This function will Multiply a Vector with a Matrix. And return a resulting Matrix vector of the operation
+        @param linear_algebra::Vector& v1: This is the Vector in question
+        @param linear_algebra::Matrix& m2: This is the Matrix in question
+        */
+        linear_algebra::Matrix Multiply(linear_algebra::Vector& v1, linear_algebra::Matrix& m2);
+
+        /*
         This function will compute the Dot Product between Vector 1 and Vector 2. It will return a double value
         @param linear_algebra::Vector& v1: This is the first Vector in question
         @param linear_algebra::Vector& v2: This is the second Vector in question
