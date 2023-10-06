@@ -63,36 +63,14 @@ namespace linear_algebra {
             std::tuple<unsigned int, unsigned int>& getDimensions(){return _dimension;};
 
             /*
-            This function will add the current Vector instance object against another Vector object. And returns a result Vector of the operation.
-            @param linear_algebra::Vector& i: It is the inputted Vector that will be added with
-
-            NOTE: This follows the Vector Addition Rules
+            This function will return the number of rows of this vector
             */
-            linear_algebra::Vector Add(linear_algebra::Vector& i);
+            unsigned int getRows(){return std::get<0>(_dimension);};
 
             /*
-            This function will subtract the current Vector instance object against another Vector object. And returns a result Vector of the operation.
-            @param linear_algebra::Vector& i: It is the inputted Vector that will be subtracted with
-
-            NOTE: This follows the Vector Subtraction Rules
+            This function will return the number of columns of this vector
             */
-            linear_algebra::Vector Subtract(linear_algebra::Vector& i);
-
-            /*
-            This function will Multiply the current Vector with a Scalar, and return a result Vector of the operation.
-            @param double val: It is the scalar to multiply the Vector by
-
-            NOTE: This follows the Vector-Scalar Multiplication Rules
-            */
-            linear_algebra::Vector Multiply(double val);
-
-            /*
-            This function will compute the Dot Product between the current Vector instance with another Vector object and it will result a double value.
-            @param linear_algebra::Vector& i: It is the inputted Vector that will be dotted with
-
-            NOTE: This follows the Vector Dot Product Rules
-            */
-            double dotProduct(linear_algebra::Vector& i);
+            unsigned int getCols(){return std::get<1>(_dimension);};
 
             /*
             This function will return if the Vector instance is a COLUMN Vector
@@ -105,7 +83,7 @@ namespace linear_algebra {
             bool isRowVector();
 
             /*
-            This function will transpose the Vector instance
+            This function will transpose the Vector instance.
 
             NOTE: If the vector instance was a row vector to begin with it will become a column vector and vice versa
             */
