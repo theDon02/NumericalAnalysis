@@ -45,7 +45,7 @@ linear_algebra::IdentityMatrix::IdentityMatrix(unsigned int c, unsigned int r) :
     for(int i = 0; i < c; i++){
         for(int j = 0; j < r; j++){
             if(i == j){
-                Matrix::setValueInMatrix(i, j, 1.);
+                Matrix::setVal(i, j, 1.);
             }
         }
     }
