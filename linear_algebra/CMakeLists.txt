@@ -1,6 +1,3 @@
-# Defining my library
-project(linear_algebra)
-
 # Define sources files needed for this library and set them equal to SOURCES
 set(SOURCES
 src/linear_algebra_exceptions.cpp
