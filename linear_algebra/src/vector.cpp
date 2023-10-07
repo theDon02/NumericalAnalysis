@@ -32,7 +32,7 @@ void linear_algebra::Vector::setVal(const unsigned int p, const double val){
             throw LinearAlgebraRunTimeException("Vector::setVal: The inputted index for the vector is out of bounds", 3);
         }
     } catch(LinearAlgebraRunTimeException& e) {
-        e.printMessage();
+        std::cerr << e.printMessage();
         std::exit(1);
     }
 
@@ -45,7 +45,7 @@ double linear_algebra::Vector::getVal(const unsigned int p){
             throw LinearAlgebraRunTimeException("Vector::getVal: The inputted index for the vector is out of bounds", 3);
         }
     } catch(LinearAlgebraRunTimeException& e) {
-        e.printMessage();
+        std::cerr << e.printMessage();
         std::exit(1);
     }
 
