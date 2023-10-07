@@ -8,13 +8,12 @@
 
 //Include header files
 #include "linear_algebra/vector.h"
-// #include <gtest/gtest.h>
 
 namespace linear_algebra {
     class Matrix {
         private:
             std::vector<std::vector<double>> _matrix;
-            std::tuple<unsigned int, unsigned int> _dimension;
+            std::tuple<unsigned int, unsigned int> _dimension = std::make_tuple(-1, -1);
 
         public:
             //Default constructor
@@ -29,13 +28,13 @@ namespace linear_algebra {
 
             /*
             This constructor will create Matrix instance with a dimension of c x r
-            @param unsigned int c: The row size of the matrix
-            @param usigned int r: The column size of the matrix
+            @param unsigned int r: The row size of the matrix
+            @param usigned int c: The column size of the matrix
             @param std::string f: The file name that has the values of the matrix, number of rows, and number of columns
 
             NOTE: The inputted "c", "r" need to match with the column and row value inside the inputted file
             */
-            Matrix(const unsigned int c, const unsigned int r, const std::string f);
+            Matrix(const unsigned int r, const unsigned int c, const std::string f);
 
             /*
             This constructor will create Matrix instance with a dimesion of c x r
@@ -57,28 +56,28 @@ namespace linear_algebra {
 
             NOTE: This is a getter function
             */
-            std::vector<std::vector<double>>& getMatrix(){return _matrix;};
+            std::vector<std::vector<double>>& getMatrix();
 
             /*
             This function will return this Matrix's instance row dimension
 
             NOTE: This is a getter function
             */
-            unsigned int getRows(){return std::get<0>(_dimension);};
-
-            /*
-            This function will return the Matrix's instance dimension
-
-            NOTE: This is a getter function
-            */
-            std::tuple<unsigned int, unsigned int>& getDimensions(){return _dimension;};
+            unsigned int getRows();
 
             /*
             This function will return this Matrix's instance column dimension
 
             NOTE: This is a getter function            
             */
-            unsigned int getCols(){return std::get<1>(_dimension);};
+            unsigned int getCols();
+
+            /*
+            This function will return the Matrix's instance dimension
+
+            NOTE: This is a getter function
+            */
+            std::tuple<unsigned int, unsigned int>& getDimensions();
 
             /*
             This function will set this Matrix's instance row dimension value
@@ -102,7 +101,7 @@ namespace linear_algebra {
 
             NOTE: This is a setter function
             */
-            void setMatrix(const std::vector<std::vector<double>>& m){_matrix = m;};
+            void setMatrix(const std::vector<std::vector<double>>& m);
 
             /*
             This function will change the value of a specific element inside the matrix. 
@@ -122,7 +121,7 @@ namespace linear_algebra {
             /*
             This function will return if the current Matrix instance is a square matrix
             */
-            bool isSquare(){return std::get<0>(_dimension) == std::get<1>(_dimension);};
+            bool isSquare();
 
             /*
             This function will read in a file that contains elements of the matrix.
