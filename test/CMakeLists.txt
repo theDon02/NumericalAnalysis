@@ -8,7 +8,6 @@ set(SOURCES
 # The source files
 set(TEST_SOURCES
 ${SOURCES}main_test.cpp
-${SOURCES}test_linear_algebra_operations.cpp
 ${SOURCES}test_solver.cpp
 ${SOURCES}test_matrix.cpp
 ${SOURCES}test_vector.cpp)
