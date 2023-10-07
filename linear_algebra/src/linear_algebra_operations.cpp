@@ -7,7 +7,7 @@ linear_algebra::Matrix LinearAlgebraOperations::Multiply(linear_algebra::Matrix&
             throw LinearAlgebraRunTimeException("LinearAlgebraOperations::Multiply: Columns of first Matrix and Rows of Second matrix don't match", 3);
         }
     } catch(LinearAlgebraRunTimeException& e) {
-        e.printMessage();
+        std::cerr << e.printMessage();
         std::exit(1);
     }
 
@@ -34,7 +34,8 @@ linear_algebra::Matrix LinearAlgebraOperations::Multiply(linear_algebra::Matrix&
             throw LinearAlgebraRunTimeException("LinearAlgebraOperations::Multiply: Columns of first Matrix and Rows of Vector don't match", 3);
         }
     } catch (LinearAlgebraRunTimeException& e) {
-        e.printMessage();
+        std::cerr << e.printMessage();
+        std::exit(1);
     }
 
     //Resulting Matrix 
@@ -63,7 +64,7 @@ linear_algebra::Matrix LinearAlgebraOperations::Subtract(linear_algebra::Matrix&
             throw LinearAlgebraRunTimeException("LinearAlgebraOperations::Subtract: The rows of both Matricies are not the same", 3);
         }
     } catch(LinearAlgebraRunTimeException& e) {
-        e.printMessage();
+        std::cerr << e.printMessage();
         std::exit(1);
     }
 
@@ -89,7 +90,7 @@ linear_algebra::Matrix LinearAlgebraOperations::Add(linear_algebra::Matrix& m1, 
             throw LinearAlgebraRunTimeException("LinearAlgebraOperations::Subtract: The rows of both Matricies are not the same", 3);
         }
     } catch(LinearAlgebraRunTimeException& e) {
-        e.printMessage();
+        std::cerr << e.printMessage();
         std::exit(1);
     }
 
@@ -132,7 +133,7 @@ linear_algebra::Vector LinearAlgebraOperations::Add(linear_algebra::Vector& v1, 
         }
 
     } catch(LinearAlgebraRunTimeException& e) {
-        e.printMessage();
+        std::cerr << e.printMessage();
         std::exit(1);
     }
 
@@ -159,7 +160,7 @@ linear_algebra::Vector LinearAlgebraOperations::Subtract(linear_algebra::Vector&
             throw LinearAlgebraRunTimeException ("LinearAlgebraOperations::Subtract: The number of elements in the vectors dont match each other", 3);
         }
     } catch(LinearAlgebraRunTimeException& e) {
-        e.printMessage();
+        std::cerr << e.printMessage();
         std::exit(1);
     }
 
@@ -189,7 +190,8 @@ linear_algebra::Matrix LinearAlgebraOperations::Multiply(linear_algebra::Vector&
             throw LinearAlgebraRunTimeException("LinearAlgebraOperations::Multiply: Vector and Matrix multiplication dimensions do not match!", 3);
         }
     } catch (LinearAlgebraRunTimeException& e) {
-        e.printMessage();
+        std::cerr << e.printMessage();
+        std::exit(1);
     }
 
     //Resulting Matrix 
@@ -214,7 +216,7 @@ double LinearAlgebraOperations::dotProduct(linear_algebra::Vector& v1, linear_al
             throw LinearAlgebraRunTimeException("LinearAlgebraOperations::dotProduct: The number of elements in the first and second vectors do not match", 3);
         }
     } catch(LinearAlgebraRunTimeException& e) {
-        e.printMessage();
+        std::cerr << e.printMessage();
         std::exit(1);
     }
 
