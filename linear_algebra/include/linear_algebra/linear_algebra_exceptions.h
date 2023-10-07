@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <chrono>
+#include <stdexcept>
 
 enum LogLevel {
     DEBUG = 0,
@@ -12,7 +13,7 @@ enum LogLevel {
     SEVERE = 3
 };
 
-class LinearAlgebraRunTimeException {
+class LinearAlgebraRunTimeException : public std::exception {
     private:
         std::string _myMessage;
         LogLevel _level;
